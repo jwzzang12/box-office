@@ -169,14 +169,12 @@
 
     const movieChart = function (selectedDate) {
       $.ajax({
-        url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
+        url: "https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
         data: {
           key: "9f9b8a1b54c6aeb13f9505b1810413b8",
           targetDt: selectedDate,
         },
       }).done(function (response) {
-        // console.log(response);
-        // console.log(response.boxOfficeResult.dailyBoxOfficeList);
         let tempHtml = "";
         $.each(response.boxOfficeResult.dailyBoxOfficeList, function (idx, item) {
           const randomColor = Math.floor(Math.random() * 256 * 256 * 256)
